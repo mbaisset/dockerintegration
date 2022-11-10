@@ -12,3 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: docker build -t mb_dockerintegration .
+      - run: docker tag mb_dockerintegration:latest mbaisset/dockinteg:latest
+      - run: docker login -u $secrets.DOCKERHUB_LOGIN -p $secrets.DOCKERHUB_PASSWORD
+      - run: docker push mbaisset/dockinteg:latest
