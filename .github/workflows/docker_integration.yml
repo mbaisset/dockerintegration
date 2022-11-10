@@ -1,0 +1,13 @@
+name: docker integration
+on: [push]
+jobs:
+  init-pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: pip install pytest
+
+  docker-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - run: docker -v
